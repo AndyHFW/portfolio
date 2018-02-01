@@ -50,13 +50,13 @@ function envelopeButtonClose() {
     }
 }
 
-$("#openbutton").bind("animationEnd", function () {
+/*$("#openbutton").bind("animationEnd", function () {
     $(this).removeClass("animated");
 })
 
 $("#openbutton").hover(function () {
     $(this).addClass("animated");
-})
+})*/
 
 /*function buttonSpin(x) {
     var button = document.getElementById("openbutton");
