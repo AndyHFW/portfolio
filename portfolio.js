@@ -2,7 +2,7 @@ function test() {
     document.getElementById("envelopebar").innerHTML = "testing";
 }
 
-function envelopeButtonClick() {
+function envelopeButtonOpen() {
     var top = document.getElementById("envelopetop");
     var bot = document.getElementById("envelopebottom");
     var button = document.getElementById("openbutton");
@@ -12,14 +12,37 @@ function envelopeButtonClick() {
     var id = setInterval(frame, 20);
     function frame() {
         if (posTop == -40 && posBot == 100) {
-            top.style.minHeight = "0%";
-            bot.style.minHeight = "0%";
-            button.onclick = test;
+            /*top.style.minHeight = "0%";
+            bot.style.minHeight = "0%";*/
+            button.onclick = envelopeButtonClose;
             clearInterval(id);
         } else {
             posTop -= 1;
             posButton -= 1;
             posBot += 1.5;
+            top.style.top = posTop + '%';
+            button.style.top = posButton + '%';
+            bot.style.top = posBot + '%';
+        }
+    }
+}
+
+function envelopeButtonClose() {
+    var top = document.getElementById("envelopetop");
+    var bot = document.getElementById("envelopebottom");
+    var button = document.getElementById("openbutton");
+    var posTop = -40;
+    var posButton = -5;
+    var posBot = 100;
+    var id = setInterval(frame, 20);
+    function frame() {
+        if (posTop == 0 && posBot == 40) {
+            button.onclick = envelopeButtonOpen;
+            clearInterval(id);
+        } else {
+            posTop += 1;
+            posButton += 1;
+            posBot -= 1.5;
             top.style.top = posTop + '%';
             button.style.top = posButton + '%';
             bot.style.top = posBot + '%';
